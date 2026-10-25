@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سيرتي | مولّد السيرة الذاتية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--pn:#fff;--tx:#14202b;--mu:#5d6b78;--bd:#d9dfe5;--ac:#0f5c63;--in:#f6f8fa}
+@media(prefers-color-scheme:dark){:root{--bg:#10161c;--pn:#18212a;--tx:#e8edf1;--mu:#9aa8b4;--bd:#2a3642;--ac:#4fb3bb;--in:#111a22}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,Arial,sans-serif;line-height:1.6}
+.top{position:sticky;top:0;z-index:5;display:flex;gap:8px;align-items:center;padding:10px 16px;background:var(--pn);border-bottom:1px solid var(--bd);flex-wrap:wrap}
+.top h1{font-size:18px;margin:0;flex:1;font-weight:800}
+button,select,input,textarea{font:inherit;color:inherit}
+.btn{border:1px solid var(--bd);background:var(--in);padding:6px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--ac)}
+.pri{background:var(--ac);color:#fff;border-color:var(--ac);font-weight:700}
+.tabs{display:none}
+.app{display:grid;grid-template-columns:minmax(340px,440px) 1fr;gap:0;align-items:start}
+.ed{padding:16px;height:calc(100vh - 56px);overflow:auto}
+.pvw{padding:20px 12px;overflow:auto;height:calc(100vh - 56px)}
+.box{background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+.box h2{font-size:15px;margin:0 0 10px}
+label{display:block;font-size:13px;color:var(--mu);margin-bottom:8px}
+input,textarea,select{width:100%;margin-top:3px;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;background:var(--in)}
+input:focus,textarea:focus,select:focus,button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+textarea{resize:vertical;min-height:70px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.item{border:1px dashed var(--bd);border-radius:10px;padding:10px;margin-bottom:10px}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chip{font-size:12px;padding:2px 10px;border:1px solid var(--bd);border-radius:20px;background:var(--in);cursor:pointer}
+.sm{font-size:12px;padding:3px 10px}
+.ord{display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.warn{background:#fff4e0;color:#6b4300;border-radius:8px;padding:6px 10px;margin-bottom:6px;font-size:13px}
+.good{background:#e3f6ea;color:#14532d;border-radius:8px;padding:6px 10px;font-size:13px}
+.note{font-size:12px;color:var(--mu)}
+/* ---------- CV ---------- */
+#cv{--c:#0f5c63;width:794px;min-height:1123px;margin:0 auto;background:#fff;color:#1f2933;padding:48px 52px;font-size:14px;line-height:1.75;box-shadow:0 6px 30px rgba(0,0,0,.15);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+#cv .hd{display:flex;gap:20px;align-items:center;border-bottom:3px solid var(--c);padding-bottom:16px;margin-bottom:8px}
+#cv .hd img{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--c)}
+#cv h1{margin:0;font-size:32px;line-height:1.25;font-weight:800;color:var(--c)}
+#cv .ttl{font-size:17px;color:#52606d;font-weight:600}
+#cv .ct{display:flex;flex-wrap:wrap;gap:2px 18px;font-size:13px;color:#52606d;margin-top:6px}
+#cv h2{font-size:15px;font-weight:800;color:var(--c);margin:18px 0 8px;padding-bottom:3px;border-bottom:1px solid #d9dfe5}
+#cv p{margin:0}
+#cv .it{margin-bottom:10px;break-inside:avoid}
+#cv .r{display:flex;justify-content:space-between;gap:12px}
+#cv .d{color:#52606d;font-size:13px;white-space:nowrap}
+#cv ul{margin:2px 0 0;padding-inline-start:20px}
+.t1 .hd{background:var(--c);color:#fff;margin:-48px -52px 14px;padding:36px 52px;border:0}
+.t1 h1,.t1 .ttl,.t1 .ct{color:#fff}
+.t1 .hd img{border-color:#fff}
+.t1 h2{background:#f1f4f6;border:0;border-inline-start:5px solid var(--c);padding:3px 10px}
+.t2{font-family:Amiri,'Noto Naskh Arabic',Georgia,serif;font-size:16px}
+.t2 .hd{flex-direction:column;text-align:center;border-top:1px solid #111;border-bottom:3px double #111;padding-top:16px}
+.t2 h1,.t2 h2{color:#111}
+.t2 h2{text-align:center;border-bottom:1px solid #111;font-size:17px}
+.t2 .r{font-size:16px}
+.t2 .ct{justify-content:center}
+@media(max-width:900px){
+.tabs{display:flex;gap:6px}
+.app{display:block}
+.ed,.pvw{height:auto;overflow:visible}
+body.pv .ed{display:none}
+body:not(.pv) .pvw{display:none}
+}
+@media print{
+@page{size:A4;margin:0}
+body{background:#fff}
+.top,.ed{display:none!important}
+.app,.pvw{display:block!important;padding:0;height:auto;overflow:visible}
+#cv{zoom:1!important;box-shadow:none;width:100%;min-height:0;margin:0}
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1 id="ttl"></h1>
+  <div class="tabs"><button class="btn sm" id="tE"></button><button class="btn sm" id="tP"></button></div>
+  <button class="btn" id="lg">English</button>
+  <button class="btn pri" id="pdf"></button>
+</div>
+<div class="app">
+  <div class="ed" id="form"></div>
+  <div class="pvw" id="pv"><div id="cv"></div></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const E=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const T={
+ar:{app:'مولّد السيرة الذاتية',pdf:'تحميل PDF',edit:'تعديل',prev:'معاينة',
+ name:'الاسم الكامل',title:'المسمى الوظيفي',email:'البريد الإلكتروني',phone:'الهاتف',city:'المدينة، البلد',
+ summary:'نبذة مختصرة',skills:'المهارات (افصل بينها بفاصلة)',langs:'اللغات (افصل بينها بفاصلة)',
+ role:'المسمى الوظيفي',co:'الشركة',from:'من',to:'إلى',desc:'الإنجازات (كل سطر = نقطة)',deg:'الشهادة / التخصص',sch:'الجامعة / المدرسة',
+ add:'+ إضافة',del:'حذف',photo:'صورة شخصية (اختياري)',photoTip:'مطلوبة في بعض دول الخليج، وغير مفضّلة في أوروبا وأمريكا.',rm:'إزالة الصورة',
+ tpl:['بسيط (متوافق مع ATS)','عصري','رسمي'],color:'اللون',design:'التصميم',order:'ترتيب الأقسام',check:'مدقّق الجودة',ok:'ممتاز، لا توجد ملاحظات 👌',
+ exp_:'تصدير بياناتي',imp:'استيراد',reset:'مسح الكل',phr:'أضف صيغة:',
+ sec:{summary:'نبذة',exp:'الخبرات',edu:'التعليم',skills:'المهارات',langs:'اللغات'},
+ ph:['زدت المبيعات بنسبة ..%','خفّضت التكاليف بنسبة ..%','أدرت فريقاً من .. أشخاص','أنجزت المشروع قبل الموعد بـ .. أيام'],
+ q:{contact:'أضف بريداً إلكترونياً أو رقم هاتف.',sShort:'النبذة قصيرة، اكتب 2-3 جمل على الأقل.',sLong:'النبذة طويلة، الأفضل أقل من 70 كلمة.',noExp:'لم تضف أي خبرة.',nums:'بعض الخبرات بلا أرقام. الأرقام تقوّي الإنجاز.',noSk:'أضف مهاراتك، فالشركات تفلتر السير بالكلمات المفتاحية.',long:'السيرة طويلة، الأفضل أن تبقى ضمن صفحة أو صفحتين.',ctrl:'تأكد من الاسم والمسمى الوظيفي.'},
+ sure:'مسح كل البيانات؟'},
+en:{app:'CV Builder',pdf:'Download PDF',edit:'Edit',prev:'Preview',
+ name:'Full name',title:'Job title',email:'Email',phone:'Phone',city:'City, Country',
+ summary:'Summary',skills:'Skills (comma separated)',langs:'Languages (comma separated)',
+ role:'Job title',co:'Company',from:'From',to:'To',desc:'Achievements (one line = one bullet)',deg:'Degree / Major',sch:'University / School',
+ add:'+ Add',del:'Delete',photo:'Photo (optional)',photoTip:'Expected in some Gulf countries, discouraged in Europe and the US.',rm:'Remove photo',
+ tpl:['Simple (ATS-friendly)','Modern','Formal'],color:'Color',design:'Design',order:'Section order',check:'Quality check',ok:'Looks great, no notes 👌',
+ exp_:'Export my data',imp:'Import',reset:'Clear all',phr:'Add phrase:',
+ sec:{summary:'Summary',exp:'Experience',edu:'Education',skills:'Skills',langs:'Languages'},
+ ph:['Increased sales by ..%','Reduced costs by ..%','Led a team of .. people','Delivered the project .. days early'],
+ q:{contact:'Add an email or phone number.',sShort:'Summary is short, write at least 2-3 sentences.',sLong:'Summary is long, aim for under 70 words.',noExp:'No experience added yet.',nums:'Some roles have no numbers. Numbers make achievements stronger.',noSk:'Add your skills, recruiters filter CVs by keywords.',long:'CV is long, keep it to one or two pages.',ctrl:'Check your name and job title.'},
+ sure:'Clear all data?'}
+};
+const SAMPLE={lang:'ar',tpl:1,color:'#0f5c63',photo:'',name:'ليلى أحمد',title:'مديرة تسويق رقمي',email:'layla@example.com',phone:'+962 7 9000 0000',city:'عمّان، الأردن',
+summary:'مديرة تسويق رقمي بخبرة 7 سنوات في بناء الحملات وتحليل البيانات، أحب تحويل الأفكار إلى نتائج قابلة للقياس.',
+exp:[{role:'مديرة التسويق الرقمي',co:'شركة الأفق',from:'2021',to:'الآن',desc:'زدت المبيعات عبر الإنترنت بنسبة 40% خلال سنة\nأدرت فريقاً من 5 أشخاص وميزانية شهرية 20 ألف دولار'}],
+edu:[{deg:'بكالوريوس إدارة أعمال',sch:'الجامعة الأردنية',from:'2013',to:'2017'}],
+skills:'إدارة الحملات، تحليل البيانات، تحسين محركات البحث، القيادة',langs:'العربية (الأم)، الإنجليزية (ممتاز)',
+order:['summary','exp','edu','skills','langs']};
+let S=null;
+try{S=JSON.parse(localStorage.getItem('cv_builder_v1'))}catch(e){}
+if(!S||!S.order||!S.exp)S=JSON.parse(JSON.stringify(SAMPLE));
+const save=()=>{try{localStorage.setItem('cv_builder_v1',JSON.stringify(S))}catch(e){}};
+const t=()=>T[S.lang];
+
+function form(){
+ const L=t(),i=(k,l,x='')=>`<label>${l}<input data-k="${k}" value="${E(S[k])}" ${x}></label>`;
+ const expH=S.exp.map((x,n)=>`<div class="item"><div class="g2">
+  <label>${L.role}<input data-l="exp" data-i="${n}" data-k="role" value="${E(x.role)}"></label>
+  <label>${L.co}<input data-l="exp" data-i="${n}" data-k="co" value="${E(x.co)}"></label>
+  <label>${L.from}<input data-l="exp" data-i="${n}" data-k="from" value="${E(x.from)}"></label>
+  <label>${L.to}<input data-l="exp" data-i="${n}" data-k="to" value="${E(x.to)}"></label></div>
+  <label>${L.desc}<textarea data-l="exp" data-i="${n}" data-k="desc">${E(x.desc)}</textarea></label>
+  <div class="row"><span class="note">${L.phr}</span>${L.ph.map((p,j)=>`<button class="chip" data-a="ph" data-i="${n}" data-j="${j}">${E(p)}</button>`).join('')}</div>
+  <div class="row" style="margin-top:8px"><button class="btn sm" data-a="del" data-l="exp" data-i="${n}">${L.del}</button></div></div>`).join('');
+ const eduH=S.edu.map((x,n)=>`<div class="item"><div class="g2">
+  <label>${L.deg}<input data-l="edu" data-i="${n}" data-k="deg" value="${E(x.deg)}"></label>
+  <label>${L.sch}<input data-l="edu" data-i="${n}" data-k="sch" value="${E(x.sch)}"></label>
+  <label>${L.from}<input data-l="edu" data-i="${n}" data-k="from" value="${E(x.from)}"></label>
+  <label>${L.to}<input data-l="edu" data-i="${n}" data-k="to" value="${E(x.to)}"></label></div>
+  <button class="btn sm" data-a="del" data-l="edu" data-i="${n}">${L.del}</button></div>`).join('');
+ const ordH=S.order.map((k,n)=>`<div class="ord"><span>${L.sec[k]}</span><span class="row"><button class="btn sm" data-a="up" data-i="${n}" aria-label="up">▲</button><button class="btn sm" data-a="dn" data-i="${n}" aria-label="down">▼</button></span></div>`).join('');
+ $('#form').innerHTML=`
+ <div class="box" id="chk"></div>
+ <div class="box"><h2>${L.design}</h2><div class="g2">
+  <label>${L.design}<select data-k="tpl">${L.tpl.map((x,n)=>`<option value="${n}" ${S.tpl==n?'selected':''}>${x}</option>`).join('')}</select></label>
+  <label>${L.color}<input type="color" data-k="color" value="${S.color}" style="height:38px;padding:2px"></label></div>
+  <label>${L.photo}<input type="file" accept="image/*" id="ph"></label>
+  <div class="note">${L.photoTip}</div>${S.photo?`<button class="btn sm" data-a="rmph" style="margin-top:6px">${L.rm}</button>`:''}</div>
+ <div class="box">${i('name',L.name)}${i('title',L.title)}<div class="g2">${i('email',L.email,'type="email" dir="ltr"')}${i('phone',L.phone,'dir="ltr"')}</div>${i('city',L.city)}</div>
+ <div class="box"><label>${L.summary}<textarea data-k="summary">${E(S.summary)}</textarea></label></div>
+ <div class="box"><h2>${t().sec.exp}</h2>${expH}<button class="btn sm" data-a="add" data-l="exp">${L.add}</button></div>
+ <div class="box"><h2>${t().sec.edu}</h2>${eduH}<button class="btn sm" data-a="add" data-l="edu">${L.add}</button></div>
+ <div class="box"><label>${L.skills}<textarea data-k="skills">${E(S.skills)}</textarea></label><label>${L.langs}<input data-k="langs" value="${E(S.langs)}"></label></div>
+ <div class="box"><h2>${L.order}</h2>${ordH}</div>
+ <div class="box row"><button class="btn sm" data-a="exp_">${L.exp_}</button><label class="btn sm" style="margin:0">${L.imp}<input type="file" accept=".json" id="imp" style="display:none"></label><button class="btn sm" data-a="reset">${L.reset}</button></div>`;
+ ui();
+}
+function ui(){const L=t();document.documentElement.lang=S.lang;document.documentElement.dir=S.lang=='ar'?'rtl':'ltr';
+ $('#ttl').textContent=L.app;$('#pdf').textContent=L.pdf;$('#tE').textContent=L.edit;$('#tP').textContent=L.prev;$('#lg').textContent=S.lang=='ar'?'English':'العربية';
+ document.title=S.name?S.name+' | CV':L.app;}
+
+const dr=x=>[x.from,x.to].filter(Boolean).join(' – ');
+const bul=d=>{const a=String(d||'').split('\n').map(s=>s.trim()).filter(Boolean);return a.length?`<ul>${a.map(s=>`<li>${E(s)}</li>`).join('')}</ul>`:''};
+const list=s=>String(s||'').split(/[,،\n]/).map(x=>x.trim()).filter(Boolean);
+function sec(k){const L=t().sec,h=`<h2>${L[k]}</h2>`;
+ if(k=='summary')return S.summary.trim()?`<section>${h}<p>${E(S.summary)}</p></section>`:'';
+ if(k=='exp'){const a=S.exp.filter(x=>x.role||x.co);return a.length?`<section>${h}${a.map(x=>`<div class="it"><div class="r"><b>${E(x.role)}${x.role&&x.co?' — ':''}${E(x.co)}</b><span class="d">${E(dr(x))}</span></div>${bul(x.desc)}</div>`).join('')}</section>`:''}
+ if(k=='edu'){const a=S.edu.filter(x=>x.deg||x.sch);return a.length?`<section>${h}${a.map(x=>`<div class="it"><div class="r"><b>${E(x.deg)}${x.deg&&x.sch?' — ':''}${E(x.sch)}</b><span class="d">${E(dr(x))}</span></div></div>`).join('')}</section>`:''}
+ if(k=='skills'){const a=list(S.skills);return a.length?`<section>${h}<p>${a.map(E).join(S.lang=='ar'?' • ':' • ')}</p></section>`:''}
+ if(k=='langs'){const a=list(S.langs);return a.length?`<section>${h}<p>${a.map(E).join(' • ')}</p></section>`:''}
+ return '';}
+function checks(){const q=t().q,r=[],w=s=>s.trim().split(/\s+/).filter(Boolean).length,n=w(S.summary);
+ if(!S.name.trim()||!S.title.trim())r.push(q.ctrl);
+ if(!S.email.trim()&&!S.phone.trim())r.push(q.contact);
+ if(n&&n<15)r.push(q.sShort);if(n>70)r.push(q.sLong);
+ if(!S.exp.some(x=>x.role.trim()))r.push(q.noExp);
+ else if(S.exp.some(x=>x.role.trim()&&!/[0-9٠-٩]/.test(x.desc)))r.push(q.nums);
+ if(!list(S.skills).length)r.push(q.noSk);
+ if($('#cv').innerText.trim().split(/\s+/).length>650)r.push(q.long);
+ const b=$('#chk');if(b)b.innerHTML=`<h2>${t().check}</h2>`+(r.length?r.map(x=>`<div class="warn">${x}</div>`).join(''):`<div class="good">${t().ok}</div>`);}
+function draw(){const cv=$('#cv');cv.className='t'+S.tpl;cv.dir=S.lang=='ar'?'rtl':'ltr';cv.style.setProperty('--c',S.color);
+ cv.innerHTML=`<div class="hd">${S.photo?`<img src="${S.photo}" alt="">`:''}<div><h1>${E(S.name)}</h1><div class="ttl">${E(S.title)}</div>
+ <div class="ct">${[S.email,S.phone,S.city].filter(Boolean).map(x=>`<span dir="auto">${E(x)}</span>`).join('')}</div></div></div>`+S.order.map(sec).join('');
+ ui();checks();save();fit();}
+function fit(){const w=$('#pv').clientWidth-24;if(w>100)$('#cv').style.zoom=Math.min(1,w/794)}
+
+$('#form').addEventListener('input',e=>{const d=e.target.dataset;if(!d.k)return;let v=e.target.value;if(d.k=='tpl')v=+v;
+ if(d.l)S[d.l][d.i][d.k]=v;else S[d.k]=v;draw()});
+$('#form').addEventListener('change',e=>{
+ if(e.target.id=='ph'&&e.target.files[0]){const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),m=Math.min(im.width,im.height),z=300;c.width=c.height=z;
+  c.getContext('2d').drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,z,z);S.photo=c.toDataURL('image/jpeg',.85);form();draw()};im.src=r.result};r.readAsDataURL(e.target.files[0])}
+ if(e.target.id=='imp'&&e.target.files[0]){const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(o&&o.order&&o.exp){S=o;form();draw()}}catch(x){}};r.readAsText(e.target.files[0])}});
+$('#form').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const d=b.dataset,a=d.a,n=+d.i;
+ if(a=='add')S[d.l].push(d.l=='exp'?{role:'',co:'',from:'',to:'',desc:''}:{deg:'',sch:'',from:'',to:''});
+ else if(a=='del')S[d.l].splice(n,1);
+ else if(a=='up'&&n>0)[S.order[n-1],S.order[n]]=[S.order[n],S.order[n-1]];
+ else if(a=='dn'&&n<S.order.length-1)[S.order[n+1],S.order[n]]=[S.order[n],S.order[n+1]];
+ else if(a=='ph'){const x=S.exp[n];x.desc=(x.desc?x.desc.replace(/\n*$/,'\n'):'')+t().ph[+d.j]}
+ else if(a=='rmph')S.photo='';
+ else if(a=='reset'){if(confirm(t().sure)){S={...JSON.parse(JSON.stringify(SAMPLE)),name:'',title:'',email:'',phone:'',city:'',summary:'',exp:[{role:'',co:'',from:'',to:'',desc:''}],edu:[{deg:'',sch:'',from:'',to:''}],skills:'',langs:'',lang:S.lang}}}
+ else if(a=='exp_'){const u=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download='my-cv-data.json';l.click();return}
+ form();draw()});
+$('#lg').onclick=()=>{S.lang=S.lang=='ar'?'en':'ar';form();draw()};
+$('#pdf').onclick=()=>{ui();window.print()};
+$('#tE').onclick=()=>document.body.classList.remove('pv');
+$('#tP').onclick=()=>{document.body.classList.add('pv');fit()};
+addEventListener('resize',fit);
+form();draw();
+</script>
+</body>
+</html>
